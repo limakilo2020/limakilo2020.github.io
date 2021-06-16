@@ -1,3 +1,4 @@
+<!-- 将mytest全部替换为一个在浏览器缓存中不存在的string -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -76,7 +77,6 @@
   table#miyazaki tbody td {
     padding: .8rem;
     font-size: 1.4rem;
-    font-size: 40px;
     color: #444;
     background: #eee;
     height: 80px;
@@ -114,9 +114,6 @@
       display: inline-block;
       width: 6rem;
     }
-    a:hover{
-      cursor:pointer
-    }
   }
 </style>
 
@@ -125,9 +122,9 @@
 </body>
 
 <script type="text/javascript">
-var arr = window.localStorage.getItem('arr');
+var mytest = window.localStorage.getItem('mytest');
   // 修改数据请看132行，134行修改数组对象，数据在控制台
-  console.log(arr);
+  console.log(mytest);
   // 修改数据
   // 修改数据
   // 修改数据
@@ -174,26 +171,13 @@ var arr = window.localStorage.getItem('arr');
   // 修改数据
   // 修改数据
 
-  if (arr == null) {
-    var initarr = 
-	
- // 修改数据
-  // 修改数据
-  // 修改数据
-
-
-  [{"name":"QQ邮箱","age":"limakilo@foxmail.com"},{"name":"网易邮箱","age":"limakilo2020@163.com"},{"name":"阿里邮箱","age":"limakilo@aliyun.com"},{"name":"百度网盘","age":"NewEureka"},{"name":"天翼云盘","age":"15247113160"},{"name":"坚果云","age":"limakilo@qq.com"},{"name":"简书","age":"15247113160（limakilo2021）"},{"name":"outlook邮箱","age":"limakilo0000@outlook.com"},{"name":"gitee","age":"limakilo@qq.com"},{"name":"github","age":"limakilo@qq.com"},{"name":"gitee(limakilo)","age":"limakilo2020@163.com"},{"name":"QQ","age":"1014278134"},{"name":"深圳社保","age":"账号lk13022550559 网址https://sipub.sz.gov.cn/hspms/"},{"name":"QQ2","age":"1666275070"},{"name":"字体","age":"苍耳今楷体"},{"name":"阿里云盘","age":"15247113160（标识符）"}]
-
-   // 修改数据
-  // 修改数据
-  // 修改数据
-  ;
-	
-	window.localStorage.setItem("arr", JSON.stringify(initarr));
+  if (mytest == null) {
+    var initmytest =[{"name":"mytest","age":"mytest"}]
+    window.localStorage.setItem("mytest", JSON.stringify(initmytest));
   }
-  var myarr = JSON.parse(window.localStorage.getItem('arr'));
+  var mymytest = JSON.parse(window.localStorage.getItem('mytest'));
 
-  console.log(myarr[0].name);
+  console.log(mymytest[0].name);
 
   // 定义活动随机颜色的函数
   function randomColor(type) {//定义函数，设置一个参数。
@@ -243,30 +227,30 @@ var arr = window.localStorage.getItem('arr');
 
   }
   function aabbb() {
-    var existarr = JSON.parse(window.localStorage.getItem('arr'));
+    var existmytest = JSON.parse(window.localStorage.getItem('mytest'));
     var addname = document.getElementById("name").value;
     var addage = document.getElementById("age").value;
     var bl1 = false;
     var bl2 = false;
-    for (var j = 0, len = existarr.length; j < len; j++) {
-      if (existarr[j].name == addname && existarr[j].age== addage) {
+    for (var j = 0, len = existmytest.length; j < len; j++) {
+      if (existmytest[j].name == addname && existmytest[j].age== addage) {
         bl1 = true;
       }
-       else if(existarr[j].name == addname || existarr[j].age== addage){
+       else if(existmytest[j].name == addname || existmytest[j].age== addage){
 bl2=true;
        }
     }
     if (addname == "" | addage == "") {
       window.alert("不合法的添加")
     } else if (bl1) {
-      for (var j = 0, len = existarr.length; j < len; j++) {
+      for (var j = 0, len = existmytest.length; j < len; j++) {
         
-        if (existarr[j].name == addname) {
+        if (existmytest[j].name == addname) {
           var yes = window.confirm(addname+":\r确定要删除此网站吗?")
           if (yes) {
 
-            existarr.splice(j, 1);
-            window.localStorage.setItem("arr", JSON.stringify(existarr));
+            existmytest.splice(j, 1);
+            window.localStorage.setItem("mytest", JSON.stringify(existmytest));
             alert(addname + ":已经被删除!!")
             location.reload();
           }
@@ -278,15 +262,15 @@ bl2=true;
       }
     }
     else if (bl2) {
-      for (var j = 0, len = existarr.length; j < len; j++) {
+      for (var j = 0, len = existmytest.length; j < len; j++) {
         
-        if (existarr[j].name == addname || existarr[j].age == addage) {
+        if (existmytest[j].name == addname || existmytest[j].age == addage) {
           var yes = window.confirm(addname+":\r确定要修改此网站吗?")
           if (yes) {
 
-            existarr[j].name = addname;
-           existarr[j].age = addage;
-            window.localStorage.setItem("arr", JSON.stringify(existarr));
+            existmytest[j].name = addname;
+           existmytest[j].age = addage;
+            window.localStorage.setItem("mytest", JSON.stringify(existmytest));
             alert(addname + ":已经被修改!!")
             location.reload();
           }
@@ -298,19 +282,19 @@ bl2=true;
       }
     }
     else {
-      var existarr = JSON.parse(window.localStorage.getItem('arr'));
-      existarr.push({ name: addname, age: addage });
-      window.localStorage.setItem("arr", JSON.stringify(existarr));
+      var existmytest = JSON.parse(window.localStorage.getItem('mytest'));
+      existmytest.push({ name: addname, age: addage });
+      window.localStorage.setItem("mytest", JSON.stringify(existmytest));
       alert(addname+":已经被添加!!");
       location.reload();
     }
 
 
   }
-  function deletearr() {
+  function deletemytest() {
     var yes = window.confirm("确定要删除所有收藏的网站吗?")
     if (yes) {
-      window.localStorage.removeItem("arr");
+      window.localStorage.removeItem("mytest");
       location.reload();
     }
     else {
@@ -319,7 +303,7 @@ bl2=true;
   }
   
   var str = `<table id="miyazaki">
-    <caption>账号总个数:<b>`+ myarr.length + `</b>个</caption>
+    <caption>账号总个数:<b>`+ mymytest.length + `</b>个</caption>
         <thead>
         
         <tbody>
@@ -327,31 +311,31 @@ bl2=true;
     
     `;
 
-  for (var j = 0, len = myarr.length; j < len; j++) {
+  for (var j = 0, len = mymytest.length; j < len; j++) {
     var trcolor = randomColor("rgb");
     console.log(trcolor);
-    str += `<tr><td data-th="序号"` + ` style="background-color: ` + trcolor + `">` + (j + 1) + "</td><td data-th='网站名称'>" + myarr[j].name + "</td><td data-th='网站地址'>" + myarr[j].age + "</a>" + "</td></tr>";
+    str += `<tr><td data-th="序号"` + ` style="background-color: ` + trcolor + `">` + (j + 1) + "</td><td data-th='网站名称'>" + mymytest[j].name + "</td><td data-th='网站地址'>" + mymytest[j].age + "</a>" + "</td></tr>";
   }
   str += `<tr> <td colspan="3"><input style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" type="text" name="name" id="name" placeholder="名称"></td>
   <tr><td colspan="3"><input style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" type="text" id="age" placeholder="链接"> </td></tr>
-  <tr><td colspan="3"><input type="button" style="background-color: #00cc99;cursor:pointer"  value="添加    修改    删除" onClick="aabbb()"> </td></tr>
+  <tr><td colspan="3"><input type="button" style="background-color: #00cc99;" value="添加    修改    删除" onClick="aabbb()"> </td></tr>
  
 
 
-    <tr> <td colspan="3" ><input type="button" style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);color:red;cursor:pointer"" value="下载账号数组文件" onclick="add()"></td></tr>
-       <tr> <td colspan="3"><input  type="button" style="background-color:  rgb(238, 155, 155);cursor:pointer"" value="清空缓存" onClick="deletearr()"></td></tr>
+    <tr> <td colspan="3" ><input type="button" style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);color:red;" value="下载账号数组文件" onclick="add()"></td></tr>
+       <tr> <td colspan="3"><input  type="button" style="background-color:  rgb(238, 155, 155);" value="清空缓存" onClick="deletemytest()"></td></tr>
       
     `;
   str += "</table>";
   document.getElementById("pp").innerHTML += str;
   var trs = document.getElementsByTagName("tr");
-  var trarr = [].slice.call(trs);
-  console.log(trarr);
-  for (var j = 0, len = trarr.length; j < len; j++) {
+  var trmytest = [].slice.call(trs);
+  console.log(trmytest);
+  for (var j = 0, len = trmytest.length; j < len; j++) {
     var trcolor = randomColor("rgb");
-    trarr[j].style.borderBottomColor = trcolor;
+    trmytest[j].style.borderBottomColor = trcolor;
     if (j > len - 6) {
-      trarr[j].style.border = "none";
+      trmytest[j].style.border = "none";
     }
   }
 
@@ -392,10 +376,10 @@ bl2=true;
 
 
   function add() {
-    var storearr = window.localStorage.getItem('arr');
+    var storemytest = window.localStorage.getItem('mytest');
     var now = new Date();
     console.log(now);
-    exports("account_" + now.toLocaleDateString() + "_" + now.getTime() + ".html", storearr);
+    exports("mytest_" + now.toLocaleDateString() + "_" + now.getTime() + ".html", storemytest);
   }
 
 </script>

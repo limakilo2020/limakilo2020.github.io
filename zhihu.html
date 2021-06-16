@@ -1,0 +1,554 @@
+<!-- 基本修改须知 -->
+<!-- "zhihu"修改为对应string -->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- 图标 -->
+  <link rel="shortcut icon" href="ico/index.png" type="image/x-icon">
+  <title>limakilo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<style>
+  td {
+    background-color: green;
+  }
+
+  input {
+    width: 100% !important;
+    height: 50px !important;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-style: none;
+    padding: 7px 0px;
+    padding-left: 5px;
+    width: 230px;
+    color: black;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+  }
+
+  input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+  }
+
+  table#miyazaki caption {
+    font-size: 2rem;
+    color: #444;
+    margin: 1rem;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left, center right;
+    text-align: left;
+  }
+
+  table#miyazaki {
+    border-collapse: collapse;
+    font-family: Agenda-Light;
+    font-weight: 100;
+    background: transparent;
+    color: #fff;
+    text-rendering: optimizeLegibility;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  table#miyazaki thead th {
+    font-weight: 600;
+  }
+
+  table#miyazaki thead th,
+  table#miyazaki tbody td {
+    padding: .8rem;
+    font-size: 1.4rem;
+
+  }
+
+  table#miyazaki tbody td {
+    padding: .8rem;
+    font-size: 1.4rem;
+    color: #444;
+    background: transparent;
+    height: 80px;
+    text-align: center;
+
+  }
+
+  table#miyazaki tbody tr:not(:last-child) {
+    border-top: 0px solid #ddd;
+    border-bottom: black 2px dashed;
+  }
+
+  @media screen and (max-width: 600px) {
+    table#miyazaki caption {
+      background-image: none;
+    }
+
+    table#miyazaki thead {
+      display: none;
+    }
+
+    table#miyazaki tbody td {
+      display: block;
+      padding: .6rem;
+    }
+
+    table#miyazaki tbody tr td:first-child {
+      background: #333;
+      color: #fff;
+    }
+
+    table#miyazaki tbody td:before {
+      content: attr(data-th);
+      font-weight: bold;
+      display: inline-block;
+      width: 6rem;
+    }
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .satic-area {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background: url(img/poster-about.jpg) no-repeat center;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .dynamic-area1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(img/poster-drop-animate2.png) repeat-x 0px 0px;
+    background-size: cover;
+    animation: posterDrop1 6000s linear infinite;
+    z-index: -1;
+
+  }
+
+  @keyframes posterDrop1 {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 5000% 0;
+    }
+  }
+
+  .dynamic-area2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(img/poster-drop-animate1.png) repeat-x 0px 0px;
+    background-size: cover;
+    animation: posterDrop2 6000s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes posterDrop2 {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 30000% 0;
+    }
+  }
+
+  input[type=text] {
+    border-bottom: 0;
+    border-top: transparent;
+    color: black !important;
+
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus,
+  textarea:focus {
+    transition: border linear .2s, box-shadow linear .5s;
+    -moz-transition: border linear .2s, -moz-box-shadow linear .5s;
+    -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
+    outline: none;
+    border-color: rgba(230, 8, 8, 0.75);
+    box-shadow: 0 0 10px rgba(24, 134, 101, 0.105);
+    -moz-box-shadow: 0 0 10px rgba(97, 36, 196, 0.5);
+    -webkit-box-shadow: 0 0 10px rgba(51, 189, 24, 0.75);
+  }
+
+  /* :placeholder样式 */
+  ::-webkit-input-placeholder {
+    /* webKit, Blink, Edge */
+    color: black;
+    font-size: 20px;
+
+  }
+
+  ::-webkit-input-placeholder:visited {
+    /* webKit, Blink, Edge */
+    color: rgb(37, 161, 89) !important;
+    font-size: 40px;
+
+  }
+
+
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: black;
+
+  }
+
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: black;
+
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+
+  }
+</style>
+
+<body id="pp" style="font-size: 35px;">
+
+  <!-- 背景特效 -->
+  <div class="satic-area" id="pp1">
+    <div class="dynamic-area1"></div>
+    <div class="dynamic-area2"></div>
+  </div>
+  <!-- 背景特效 -->
+
+</body>
+
+<script type="text/javascript">
+  var arr = window.localStorage.getItem('zhihu');
+  var date = new Date().toLocaleString();
+  if (arr == null) {
+    var initarr =
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+
+     [{"name":"如果适合做销售，选择哪些行业的销售职位未来发展空间更大？","age":"https://www.zhihu.com/question/20031275/answer/1057928918","updateTime":"2020/12/27 下午5:22:41","beizhu":"作者：胡说捌道 链接：https://www.zhihu.com/question/20031275/answer/1057928918 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 如果从当前疫情之下来看。建议是：能不换工作，尽量不换。如果，你已离职，木已成舟。那就抓好，扶稳，开船了。销售人员如何选择行业和公司？大多数人都没有真正认真思考过这个问题。总是觉得：销售干得好，什么行业都赚钱；销售高手，什么产品都能卖出去。然后，什么公司面试上了，就去什么公司。几年后，无论是能力还是收入，跟别人一对比，千差万别。要彻底解决这个问题，因从结果上，倒推：赚到钱了，就是选对了行业和公司。因此，第一个要思考的问题就是：销售如何赚到钱？销售要赚钱，从两个角度考虑：1.从销售本职工作开赚销售本职收入，来自于销售额。销售额=基础客户x转化率x客单价基础客户，跟你的努力程度相关，跟市场快速增长更相关。除了积累大量的客户之外，选择一个新兴行业，选择一个营业额快速增长的公司，非常重要。 转化率，跟个人销售技巧相关，跟公司、产品实力相关。你要打造一套自己的销售系统，同时，公司实力也决定了你的上限。 客单价要做高，与良好的客情关系有关，也需要信息差。客情关系做好了，客户愿意帮你，同时产品有操作空间，而不是单纯比价格，就能获得更高的利润。2.从工作之外开赚马无夜草不肥。 当销售掌握了客户资源以后，一部分人纵向拓展，开始代理自己的品牌。还一部分人横向拓展，做一部分客户需要采购的，其他产品。而这个前提是要有客户资源，最好是高端资源。因此，从销售如何赚，推导出销售如何干：一.行业：快速成长二.公司：实力强劲三.销售：资源积累好，一般文章到这，可以写结束语了：因此，销售工作，一定要找到快速成长的行业，一个实力强劲的公司，同时能积累资源。完。我们——继续。———————————————————————————一、行业关键词：快速成长。 说的就是行业增长率，一般建议在20%以上。在一个快速成长的行业中，销售政策好，你更容易的获得客户，也会有更多的机遇。如何找到快速成长的行业？1.从资本流向查 了解各投资机构，对新兴行业的投资情况。如图：ps:上图为某个机构的行业投资情况，仅供参考。因不能放第三方链接，请各位自行查找。2.从行业报告查了解各个行业的宏观数据和趋势。如图：3.从本地政策找大数据毕竟是宏观数据，个人觉得参考一下即可。 从当地政策上找，更直接、更落地。 例如搜索：2020年xx市政府工作报告、2019xx市互联网发展白皮书、2020年xx市经济工作等。从中能得到很多当地重点发展的行业和公司。如图：然后解读关键词，例如：22条产业链，其实就是22个大力扶持的行业。当然，还可以去官方网站、新闻资讯了解政策信息。二、公司一个好的公司，决定了你的上限。如何找到好公司？1.常规做法搜索行业内明星企业、营业额靠前的企业。在上文本地政策中，可以找到不少数据。也可以查找附近产业园中的明星企业。新建产业园中，很多都是大力发展的行业和企业。再从企查查、天眼通等，查企业工商信息，再查看公司官网，就对公司有了基本了解。2.非常规做法(1).从政府采购网查百度：xx市政府采购网进入网站后，搜索[中标公告]输入行业关键词，例如：区块链、工业互联网等搜出项目中标的公司，一般能中标大项目的公司，都是有实力的。这是从结果导向，来找公司。同时，也验证了你找到的行业，有没有项目在运作。甲方、乙方、项目金额、付款方式等，这些信息都能得到。如图：当然，有很多产品都是不用进行招投标的，因此，这算是一个充分不必要条件。(2).从xx网站查（这两个字有点敏感）上市公司，能查到近几年的营业额、增长率、行业排名、重大新闻等信息。（非上市公司，在公司官网或者公众号查找。）如图：如果是新三板公司，可以查到高管的简历、学历、从业经历、重要事迹等。我不会告诉你，它还可以用来调查高端客户的信息。如图：三、销售空间销售空间，从公司的角度，体现在工资上，更高的工资和提成，体现出更高的价值。从个人角度来说，体现在技术和资源上，需要更多的销售技能，能接触更多的高端资源，就能发挥更大的作用。1.薪资水平从招聘信息就可以看出，如果查到了招投标项目的金额，询问了提出比例，也能算出一个项目大概的收入情况。 从面试中再调查一轮：询问公司整体业务量，销售员人数，就知道了平均业务量。询问提成比例，销冠的销售额，就知道了自己大概的收入和上限。2.销售资源从接触的客户类型判断。 所谓高端资源就是高端人脉，说白了就是有钱、有权的人。 公司目标客户群，是否这一类型。公司简介，销售职责中一般会写，面试中再询问一遍目标客户类型，就了解了销售资源。当然，各行各业都有能赚到钱的销售。只是，现在考虑的是以一个新人的姿态，去开拓市场。一个快速发展的行业之下，一个实力强劲的公司做背书，接触各种高端资源，无论是收入还是能力，都会有更有机会提升。———————————————————————————写在最后，这个问题相当于是：行业分析+销售前景+职业规划问题其实很大，而且不同时期、不同地区、不同个人资历，都会有各种不同的情况。本文只能算作一个启发。另外，关注公众号[胡说捌道]，回复：行业调查，就能得到行业趋势分析和5个新兴行业的行业报告。都看到这了，点完赞 再走谢谢！"}]
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+
+
+
+      ;
+    window.localStorage.setItem("zhihu", JSON.stringify(initarr));
+  }
+  var zhihuarr = JSON.parse(window.localStorage.getItem('zhihu'));
+
+  // 定义活动随机颜色的函数
+  function randomColor(type) {
+    //定义函数，设置一个参数。
+    var str1 = "#";
+    var str2 = "0123456789abcdef";
+
+
+    var str3 = "rgb("
+    //rgb的格式;
+    var str4 = "";
+    //统一返回值
+    if (type == 16) {
+      //判断参数
+      for (var i = 0; i < 6; i++) {
+        //循环6次
+        var n = parseInt(Math.random() * str2.length);
+        str1 += str2[n];
+        //拼接
+      }
+      str4 = str1;
+      //统一返回值
+    }
+
+
+
+    if (type == "rgb") {//判断参数
+      for (var i = 0; i < 3; i++) {//循环三次
+        var n = parseInt(Math.random() * 255) + 1;//获取0-255中的随机数，因为rgb的方式是有三位0-255数字组成的
+
+
+        if (i != 2) {
+          str3 += n + ",";//拼接
+
+
+        } else {
+          str3 += n;//第三位后面没有逗号
+        }
+
+
+      }
+      str3 += ")";
+      //console.log(str3);
+      str4 = str3;//统一返回值
+    }
+
+
+    // return str3;
+    // return str1;
+    return str4; //返回
+
+  }
+  function aabbb() {
+    var zhihuarr = JSON.parse(window.localStorage.getItem('zhihu'));
+    var addname = document.getElementById("name").value;
+    var addage = document.getElementById("age").value;
+    var addbeizhu = document.getElementById("beizhu").value;
+
+    var bl1 = false;
+    var bl2 = false;
+    for (var j = 0, len = zhihuarr.length; j < len; j++) {
+      if (zhihuarr[j].name == addname && zhihuarr[j].age == addage) {
+        bl1 = true;
+      }
+      else if (zhihuarr[j].name == addname || zhihuarr[j].age == addage) {
+        bl2 = true;
+      }
+    }
+    if (addname == "" | addage == "") {
+      window.alert("不合法的添加")
+    } else if (bl1) {
+      for (var j = 0, len = zhihuarr.length; j < len; j++) {
+
+        if (zhihuarr[j].name == addname) {
+          var yes = window.confirm(addname + ":\r确定要删除此网站吗?")
+          if (yes) {
+
+            zhihuarr.splice(j, 1);
+            window.localStorage.setItem("zhihu", JSON.stringify(zhihuarr));
+            alert(addname + ":已经被删除!!")
+            location.reload();
+          }
+          else {
+            alert("已经撤销了删除")
+          }
+
+        }
+      }
+    }
+    else if (bl2) {
+      for (var j = 0, len = zhihuarr.length; j < len; j++) {
+
+        if (zhihuarr[j].name == addname || zhihuarr[j].age == addage) {
+          var yes = window.confirm(addname + ":\r确定要修改此网站吗?")
+          if (yes) {
+
+            zhihuarr[j].name = addname;
+            zhihuarr[j].age = addage;
+            zhihuarr[j].updateTime = new Date().toLocaleString() + "(更新)"
+            zhihuarr[j].beizhu = addbeizhu;
+            window.localStorage.setItem("zhihu", JSON.stringify(zhihuarr));
+            alert(addname + ":已经被修改!!")
+            location.reload();
+          }
+          else {
+            alert("已经撤销了修改")
+          }
+
+        }
+      }
+    }
+    else {
+      var zhihuarr = JSON.parse(window.localStorage.getItem('zhihu'));
+      var dateTime = new Date().toLocaleString();
+      zhihuarr.push({ name: addname, age: addage, updateTime: dateTime, beizhu: addbeizhu });
+      window.localStorage.setItem("zhihu", JSON.stringify(zhihuarr));
+      alert(addname + ":已经被添加!!");
+      location.reload();
+    }
+
+
+  }
+  function deletearr() {
+    var yes = window.confirm("确定要删除所有收藏吗?")
+    if (yes) {
+      window.localStorage.removeItem("zhihu");
+      location.reload();
+    }
+    else {
+      alert("已经撤销了删除")
+    }
+  }
+
+
+  // 修改
+  // 修改
+  // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+  var str = `
+  <h1 style="text-align: center; margin:0;">知乎文章收藏</h1>
+  <table id="miyazaki">
+   
+    <caption>收藏的网站总计:<b>`+ zhihuarr.length + `</b>个</caption>
+        <thead>
+        
+        <tbody>
+        <tr>
+    
+    `;
+  // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 
+  // 修改
+  // 修改
+
+
+  for (var j = 0, len = zhihuarr.length; j < len; j++) {
+    var trcolor = randomColor("rgb");
+    var trcolor1 = randomColor("rgb");
+    console.log(trcolor);
+    if (zhihuarr[j].updateTime == null) {
+      zhihuarr[j].updateTime = new Date().toLocaleString();
+    }
+    if (zhihuarr[j].beizhu == null) {
+      zhihuarr[j].beizhu = " ";
+    }
+    // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+    str += `<tr><td data-th="序号："` + ` style="background-color: ` + trcolor + `">` + (j + 1) +
+      "</td><td data-th='网站名称:'" + ` style="color: ` + trcolor + `">` + zhihuarr[j].name +
+      "</td><td data-th='网站地址:'" + ` style="background-color: ` + "transparent;" + `">` + "<a href='" + zhihuarr[j].age + "'" + ` style="color: ` + trcolor1 + `">` + zhihuarr[j].age + "</a></td>" +
+      `<td data-th="创建日期:"` + ` style="color: ` + trcolor + `">` + zhihuarr[j].updateTime + `</td>
+    <td data-th="备注说明:"` + ` style="border: 1px solid ` + trcolor + `">` + zhihuarr[j].beizhu + "</td></tr>";
+    /// 修改/ 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+  }
+
+
+  var trcolor = randomColor("rgb");
+  var trcolor1 = randomColor("rgb");
+
+  // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+  // id="name" placeholder="请输入名称"
+  str += `<tr> <td colspan="5"` + ` style="color:black;background: ` + "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" + `">`
+    + `<input style="BACKGROUND-COLOR: transparent;" type="text" name="name" id="name" placeholder="请输入名称"></td>
+    <tr>`;
+
+  // id="age" placeholder="请输入链接"
+  str += `<td colspan="5"` + ` style="background: ` + "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" + `">`
+    + `<input style="BACKGROUND-COLOR: transparent;" type="text" id="age" placeholder="请输入链接"> </td>
+    </tr>`
+
+  // id="beizhu" placeholder="请输入备注"
+  str += `<tr><td colspan="5"` + ` style="background: ` + "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" + `">`
+    + `<input style="BACKGROUND-COLOR: transparent;" type="text" id="beizhu" placeholder="请输入备注"> </td>
+  </tr>`
+
+  // 添加   删除  修改
+  str += `<tr><td colspan="5"` + ` style="background-color: ` + trcolor + `">` +
+    `<input type="button" style="cursor:pointer;background-color: #00cc99;" value="添加   删除  修改" onClick="aabbb()"> </td>
+   </tr>`
+
+  //  下载账号数组文件
+  str += `<tr> <td colspan="5"` + ` style="background-color: ` + trcolor + `">` +
+    `<input style="cursor:pointer;" type="button" value="下载账号数组文件" onclick="add()"></td>
+  </tr>`
+
+  // 清空缓存  初始化zhihu数组
+  str += `<tr> <td colspan="5"` + ` style="background-color: ` + trcolor + `">` + `<input  type="button" 
+  style="background-color:  rgb(238, 155, 155);cursor:pointer" value="清空缓存  初始化zhihu数组" onClick="deletearr()"></td>
+  </tr>`;
+  // 修改// // 修改// 修改// 修改// 修改改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+
+  str += "</table>";
+  document.getElementById("pp").innerHTML += str;
+  var trs = document.getElementsByTagName("tr");
+  var trarr = [].slice.call(trs);
+  console.log(trarr);
+  for (var j = 0, len = trarr.length; j < len; j++) {
+    var trcolor = randomColor("rgb");
+    trarr[j].style.borderBottomColor = trcolor;
+    // 去除input元素的边框
+    if (j > len - 7) {
+      trarr[j].style.border = "none";
+    }
+  }
+
+
+
+
+  // /*-----begin-------*/
+  // var f = JSON.stringify(fruit); //转化成JSON字符串
+  // window.localStorage.setItem('fruit', f); //存储到本地
+  // /*------end-------*/
+  // var aa = window.localStorage.getItem('fruit'); //读存储的数据
+  // var aaObj = JSON.parse(aa); //将JSON字符串转化成JSON对象方便读取
+
+  var inputs = document.getElementsByTagName("input");
+  console.log(inputs);
+  for (var i = 0, len = inputs.length; i < len; i++) {
+    // inputs[i].style.backgroundColor=randomColor("rgb");
+    inputs[0].style.color = randomColor("rgb");
+    inputs[1].style.color = randomColor("rgb");
+    inputs[2].style.color = randomColor("rgb");
+
+
+  }
+  var title = document.getElementsByTagName("b");
+  title[0].color = randomColor("rgb");
+
+  //存文件zhihusites.txt
+  function exports(name, data) {
+    var urlObject = window.URL || window.zhihukitURL || window;
+    var export_blob = new Blob([data]);
+    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+    save_link.href = urlObject.createObjectURL(export_blob);
+    save_link.download = name;
+    fakeClick(save_link);
+  }
+  function fakeClick(obj) {
+    var ev = document.createEvent('MouseEvents');
+    ev.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    obj.dispatchEvent(ev);
+  }
+
+
+  function add() {
+    var storearr = window.localStorage.getItem('zhihu');
+    var now = new Date();
+    console.log(now);
+    exports("zhihus_" + now.toLocaleDateString() + "_" + now.getTime() + ".html", storearr);
+  }
+
+  // 获取id为miyazaki的表格的高度
+  var th = document.all.miyazaki.offsetHeight;
+  document.getElementsByClassName("satic-area")[0].style.height = th + "px";
+
+</script>
+<style>
+  a:hover {
+    color: red !important;
+    font-size: 40px;
+
+  }
+</style>
+<!-- 背景特效 -->

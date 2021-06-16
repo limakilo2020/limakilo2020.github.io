@@ -114,9 +114,6 @@
       display: inline-block;
       width: 6rem;
     }
-    a:hover{
-      cursor:pointer
-    }
   }
 </style>
 
@@ -125,9 +122,9 @@
 </body>
 
 <script type="text/javascript">
-var arr = window.localStorage.getItem('arr');
+var admovie = window.localStorage.getItem('admovie');
   // 修改数据请看132行，134行修改数组对象，数据在控制台
-  console.log(arr);
+  console.log(admovie);
   // 修改数据
   // 修改数据
   // 修改数据
@@ -174,26 +171,28 @@ var arr = window.localStorage.getItem('arr');
   // 修改数据
   // 修改数据
 
-  if (arr == null) {
-    var initarr = 
-	
- // 修改数据
-  // 修改数据
-  // 修改数据
+  if (admovie == null) {
+    var initadmovie = 
+    
 
 
-  [{"name":"QQ邮箱","age":"limakilo@foxmail.com"},{"name":"网易邮箱","age":"limakilo2020@163.com"},{"name":"阿里邮箱","age":"limakilo@aliyun.com"},{"name":"百度网盘","age":"NewEureka"},{"name":"天翼云盘","age":"15247113160"},{"name":"坚果云","age":"limakilo@qq.com"},{"name":"简书","age":"15247113160（limakilo2021）"},{"name":"outlook邮箱","age":"limakilo0000@outlook.com"},{"name":"gitee","age":"limakilo@qq.com"},{"name":"github","age":"limakilo@qq.com"},{"name":"gitee(limakilo)","age":"limakilo2020@163.com"},{"name":"QQ","age":"1014278134"},{"name":"深圳社保","age":"账号lk13022550559 网址https://sipub.sz.gov.cn/hspms/"},{"name":"QQ2","age":"1666275070"},{"name":"字体","age":"苍耳今楷体"},{"name":"阿里云盘","age":"15247113160（标识符）"}]
 
-   // 修改数据
-  // 修改数据
-  // 修改数据
-  ;
-	
-	window.localStorage.setItem("arr", JSON.stringify(initarr));
+
+    
+    [{"name":"迷妹网","age":"https://mimeiav.com/"},{"name":"拔插","age":"https://8xmcjp.com/"},{"name":"k频道","age":"http://kdh74.me/"},{"name":"美姬视频","age":"https://xn--cysr98f.com/"}]
+  
+  
+
+
+
+
+
+    ;
+  console.log(initadmovie);
+    window.localStorage.setItem("admovie", JSON.stringify(initadmovie));
   }
-  var myarr = JSON.parse(window.localStorage.getItem('arr'));
-
-  console.log(myarr[0].name);
+  var myadmovie = JSON.parse(window.localStorage.getItem('admovie'));
+  console.log(myadmovie[0].name);
 
   // 定义活动随机颜色的函数
   function randomColor(type) {//定义函数，设置一个参数。
@@ -243,30 +242,30 @@ var arr = window.localStorage.getItem('arr');
 
   }
   function aabbb() {
-    var existarr = JSON.parse(window.localStorage.getItem('arr'));
+    var existadmovie = JSON.parse(window.localStorage.getItem('admovie'));
     var addname = document.getElementById("name").value;
     var addage = document.getElementById("age").value;
     var bl1 = false;
     var bl2 = false;
-    for (var j = 0, len = existarr.length; j < len; j++) {
-      if (existarr[j].name == addname && existarr[j].age== addage) {
+    for (var j = 0, len = existadmovie.length; j < len; j++) {
+      if (existadmovie[j].name == addname && existadmovie[j].age== addage) {
         bl1 = true;
       }
-       else if(existarr[j].name == addname || existarr[j].age== addage){
+       else if(existadmovie[j].name == addname || existadmovie[j].age== addage){
 bl2=true;
        }
     }
     if (addname == "" | addage == "") {
       window.alert("不合法的添加")
     } else if (bl1) {
-      for (var j = 0, len = existarr.length; j < len; j++) {
+      for (var j = 0, len = existadmovie.length; j < len; j++) {
         
-        if (existarr[j].name == addname) {
+        if (existadmovie[j].name == addname) {
           var yes = window.confirm(addname+":\r确定要删除此网站吗?")
           if (yes) {
 
-            existarr.splice(j, 1);
-            window.localStorage.setItem("arr", JSON.stringify(existarr));
+            existadmovie.splice(j, 1);
+            window.localStorage.setItem("admovie", JSON.stringify(existadmovie));
             alert(addname + ":已经被删除!!")
             location.reload();
           }
@@ -278,15 +277,15 @@ bl2=true;
       }
     }
     else if (bl2) {
-      for (var j = 0, len = existarr.length; j < len; j++) {
+      for (var j = 0, len = existadmovie.length; j < len; j++) {
         
-        if (existarr[j].name == addname || existarr[j].age == addage) {
+        if (existadmovie[j].name == addname || existadmovie[j].age == addage) {
           var yes = window.confirm(addname+":\r确定要修改此网站吗?")
           if (yes) {
 
-            existarr[j].name = addname;
-           existarr[j].age = addage;
-            window.localStorage.setItem("arr", JSON.stringify(existarr));
+            existadmovie[j].name = addname;
+           existadmovie[j].age = addage;
+            window.localStorage.setItem("admovie", JSON.stringify(existadmovie));
             alert(addname + ":已经被修改!!")
             location.reload();
           }
@@ -298,19 +297,19 @@ bl2=true;
       }
     }
     else {
-      var existarr = JSON.parse(window.localStorage.getItem('arr'));
-      existarr.push({ name: addname, age: addage });
-      window.localStorage.setItem("arr", JSON.stringify(existarr));
+      var existadmovie = JSON.parse(window.localStorage.getItem('admovie'));
+      existadmovie.push({ name: addname, age: addage });
+      window.localStorage.setItem("admovie", JSON.stringify(existadmovie));
       alert(addname+":已经被添加!!");
       location.reload();
     }
 
 
   }
-  function deletearr() {
+  function deleteadmovie() {
     var yes = window.confirm("确定要删除所有收藏的网站吗?")
     if (yes) {
-      window.localStorage.removeItem("arr");
+      window.localStorage.removeItem("admovie");
       location.reload();
     }
     else {
@@ -319,7 +318,7 @@ bl2=true;
   }
   
   var str = `<table id="miyazaki">
-    <caption>账号总个数:<b>`+ myarr.length + `</b>个</caption>
+    <caption>账号总个数:<b>`+ myadmovie.length + `</b>个</caption>
         <thead>
         
         <tbody>
@@ -327,31 +326,31 @@ bl2=true;
     
     `;
 
-  for (var j = 0, len = myarr.length; j < len; j++) {
+  for (var j = 0, len = myadmovie.length; j < len; j++) {
     var trcolor = randomColor("rgb");
     console.log(trcolor);
-    str += `<tr><td data-th="序号"` + ` style="background-color: ` + trcolor + `">` + (j + 1) + "</td><td data-th='网站名称'>" + myarr[j].name + "</td><td data-th='网站地址'>" + myarr[j].age + "</a>" + "</td></tr>";
+    str += `<tr><td data-th="序号"` + ` style="background-color: ` + trcolor + `">` + (j + 1) + "</td><td data-th='网站名称'>" + myadmovie[j].name + "</td><td data-th='网站地址'>" + myadmovie[j].age + "</a>" + "</td></tr>";
   }
   str += `<tr> <td colspan="3"><input style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" type="text" name="name" id="name" placeholder="名称"></td>
   <tr><td colspan="3"><input style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" type="text" id="age" placeholder="链接"> </td></tr>
-  <tr><td colspan="3"><input type="button" style="background-color: #00cc99;cursor:pointer"  value="添加    修改    删除" onClick="aabbb()"> </td></tr>
+  <tr><td colspan="3"><input type="button" style="background-color: #00cc99;" value="添加    修改    删除" onClick="aabbb()"> </td></tr>
  
 
 
-    <tr> <td colspan="3" ><input type="button" style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);color:red;cursor:pointer"" value="下载账号数组文件" onclick="add()"></td></tr>
-       <tr> <td colspan="3"><input  type="button" style="background-color:  rgb(238, 155, 155);cursor:pointer"" value="清空缓存" onClick="deletearr()"></td></tr>
+    <tr> <td colspan="3" ><input type="button" style="BACKGROUND-COLOR: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);color:red;" value="下载账号数组文件" onclick="add()"></td></tr>
+       <tr> <td colspan="3"><input  type="button" style="background-color:  rgb(238, 155, 155);" value="清空缓存" onClick="deleteadmovie()"></td></tr>
       
     `;
   str += "</table>";
   document.getElementById("pp").innerHTML += str;
   var trs = document.getElementsByTagName("tr");
-  var trarr = [].slice.call(trs);
-  console.log(trarr);
-  for (var j = 0, len = trarr.length; j < len; j++) {
+  var tradmovie = [].slice.call(trs);
+  console.log(tradmovie);
+  for (var j = 0, len = tradmovie.length; j < len; j++) {
     var trcolor = randomColor("rgb");
-    trarr[j].style.borderBottomColor = trcolor;
+    tradmovie[j].style.borderBottomColor = trcolor;
     if (j > len - 6) {
-      trarr[j].style.border = "none";
+      tradmovie[j].style.border = "none";
     }
   }
 
@@ -392,10 +391,10 @@ bl2=true;
 
 
   function add() {
-    var storearr = window.localStorage.getItem('arr');
+    var storeadmovie = window.localStorage.getItem('admovie');
     var now = new Date();
     console.log(now);
-    exports("account_" + now.toLocaleDateString() + "_" + now.getTime() + ".html", storearr);
+    exports("admovie_" + now.toLocaleDateString() + "_" + now.getTime() + ".html", storeadmovie);
   }
 
 </script>
