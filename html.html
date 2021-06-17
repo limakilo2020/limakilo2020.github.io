@@ -1,0 +1,582 @@
+<!-- 基本修改须知 -->
+<!-- "xuexi"修改为对应string -->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- 图标 -->
+  <link rel="shortcut icon" href="ico/index.png" type="image/x-icon">
+  <title>学习网站</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<style>
+  td {
+    background-color: green;
+  }
+
+  input {
+    width: 100% !important;
+    height: 50px !important;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-style: none;
+    padding: 7px 0px;
+    padding-left: 5px;
+    width: 230px;
+    color: black;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+  }
+
+  input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+  }
+
+  table#miyazaki caption {
+    font-size: 2rem;
+    color: #444;
+    margin: 1rem;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left, center right;
+    text-align: left;
+  }
+
+  table#miyazaki {
+    border-collapse: collapse;
+    font-family: Agenda-Light;
+    font-weight: 100;
+    background: transparent;
+    color: #fff;
+    text-rendering: optimizeLegibility;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  table#miyazaki thead th {
+    font-weight: 600;
+  }
+
+  table#miyazaki thead th,
+  table#miyazaki tbody td {
+    padding: .8rem;
+    font-size: 1.4rem;
+
+  }
+
+  table#miyazaki tbody td {
+    padding: .8rem;
+    font-size: 1.4rem;
+    color: #444;
+    background: transparent;
+    height: 80px;
+    text-align: center;
+
+  }
+
+  table#miyazaki tbody tr:not(:last-child) {
+    border-top: 0px solid #ddd;
+    border-bottom: black 2px dashed;
+  }
+
+  @media screen and (max-width: 600px) {
+    table#miyazaki caption {
+      background-image: none;
+    }
+
+    table#miyazaki thead {
+      display: none;
+    }
+
+    table#miyazaki tbody td {
+      display: block;
+      padding: .6rem;
+    }
+
+    table#miyazaki tbody tr td:first-child {
+      background: #333;
+      color: #fff;
+    }
+
+    table#miyazaki tbody td:before {
+      content: attr(data-th);
+      font-weight: bold;
+      display: inline-block;
+      width: 6rem;
+    }
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .satic-area {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background: url(img/poster-about.jpg) no-repeat center;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .dynamic-area1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(img/poster-drop-animate2.png) repeat-x 0px 0px;
+    background-size: cover;
+    animation: posterDrop1 6000s linear infinite;
+    z-index: -1;
+
+  }
+
+  @keyframes posterDrop1 {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 5000% 0;
+    }
+  }
+
+  .dynamic-area2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(img/poster-drop-animate1.png) repeat-x 0px 0px;
+    background-size: cover;
+    animation: posterDrop2 6000s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes posterDrop2 {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 30000% 0;
+    }
+  }
+
+  input[type=text] {
+    border-bottom: 0;
+    border-top: transparent;
+    color: black !important;
+
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus,
+  textarea:focus {
+    transition: border linear .2s, box-shadow linear .5s;
+    -moz-transition: border linear .2s, -moz-box-shadow linear .5s;
+    -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
+    outline: none;
+    border-color: rgba(230, 8, 8, 0.75);
+    box-shadow: 0 0 10px rgba(24, 134, 101, 0.105);
+    -moz-box-shadow: 0 0 10px rgba(97, 36, 196, 0.5);
+    -webkit-box-shadow: 0 0 10px rgba(51, 189, 24, 0.75);
+  }
+
+  /* :placeholder样式 */
+  ::-webkit-input-placeholder {
+    /* webKit, Blink, Edge */
+    color: black;
+    font-size: 20px;
+
+  }
+
+  ::-webkit-input-placeholder:visited {
+    /* webKit, Blink, Edge */
+    color: rgb(37, 161, 89) !important;
+    font-size: 40px;
+
+  }
+
+
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: black;
+
+  }
+
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: black;
+
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+
+  }
+</style>
+
+<body id="pp" style="font-size: 35px;">
+
+  <!-- 背景特效 -->
+  <div class="satic-area" id="pp1">
+    <div class="dynamic-area1"></div>
+    <div class="dynamic-area2"></div>
+  </div>
+  <!-- 背景特效 -->
+
+</body>
+
+<script type="text/javascript">
+  var arr = window.localStorage.getItem('xuexi');
+  var date = new Date().toLocaleString();
+  if (arr == null) {
+    var initarr =
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+
+      [{ "name": "HTML（超文本标记语言） 初学者教程", "age": "https://developer.mozilla.org/zh-CN/docs/Web/HTML", "updateTime": "2021/6/17下午5:20:40", "beizhu": "" }]
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+      // 修改数据
+
+
+
+      ;
+    window.localStorage.setItem("xuexi", JSON.stringify(initarr));
+  }
+  var mytestarr = JSON.parse(window.localStorage.getItem('xuexi'));
+
+  // 定义活动随机颜色的函数
+  function randomColor(type) {
+    //定义函数，设置一个参数。
+    var str1 = "#";
+    var str2 = "0123456789abcdef";
+
+
+    var str3 = "rgb("
+    //rgb的格式;
+    var str4 = "";
+    //统一返回值
+    if (type == 16) {
+      //判断参数
+      for (var i = 0; i < 6; i++) {
+        //循环6次
+        var n = parseInt(Math.random() * str2.length);
+        str1 += str2[n];
+        //拼接
+      }
+      str4 = str1;
+      //统一返回值
+    }
+
+
+
+    if (type == "rgb") {//判断参数
+      for (var i = 0; i < 3; i++) {//循环三次
+        var n = parseInt(Math.random() * 255) + 1;//获取0-255中的随机数，因为rgb的方式是有三位0-255数字组成的
+
+
+        if (i != 2) {
+          str3 += n + ",";//拼接
+
+
+        } else {
+          str3 += n;//第三位后面没有逗号
+        }
+
+
+      }
+      str3 += ")";
+      //console.log(str3);
+      str4 = str3;//统一返回值
+    }
+
+
+    // return str3;
+    // return str1;
+    return str4; //返回
+
+  }
+  function aabbb() {
+    var mytestarr = JSON.parse(window.localStorage.getItem('xuexi'));
+    var addname = document.getElementById("name").value;
+    var addage = document.getElementById("age").value;
+    var addbeizhu = document.getElementById("beizhu").value;
+
+    var bl1 = false;
+    var bl2 = false;
+    for (var j = 0, len = mytestarr.length; j < len; j++) {
+      if (mytestarr[j].name == addname && mytestarr[j].age == addage) {
+        bl1 = true;
+      }
+      else if (mytestarr[j].name == addname || mytestarr[j].age == addage) {
+        bl2 = true;
+      }
+    }
+    if (addname == "" | addage == "") {
+      window.alert("不合法的添加")
+    } else if (bl1) {
+      for (var j = 0, len = mytestarr.length; j < len; j++) {
+
+        if (mytestarr[j].name == addname) {
+          var yes = window.confirm(addname + ":\r确定要删除此网站吗?")
+          if (yes) {
+
+            mytestarr.splice(j, 1);
+            window.localStorage.setItem("xuexi", JSON.stringify(mytestarr));
+            alert(addname + ":已经被删除!!")
+            location.reload();
+          }
+          else {
+            alert("已经撤销了删除")
+          }
+
+        }
+      }
+    }
+    else if (bl2) {
+      for (var j = 0, len = mytestarr.length; j < len; j++) {
+
+        if (mytestarr[j].name == addname || mytestarr[j].age == addage) {
+          var yes = window.confirm(addname + ":\r确定要修改此网站吗?")
+          if (yes) {
+
+            mytestarr[j].name = addname;
+            mytestarr[j].age = addage;
+            mytestarr[j].updateTime = new Date().toLocaleString() + "(更新)"
+            mytestarr[j].beizhu = addbeizhu;
+            window.localStorage.setItem("xuexi", JSON.stringify(mytestarr));
+            alert(addname + ":已经被修改!!")
+            location.reload();
+          }
+          else {
+            alert("已经撤销了修改")
+          }
+
+        }
+      }
+    }
+    else {
+      var mytestarr = JSON.parse(window.localStorage.getItem('xuexi'));
+      var dateTime = new Date().toLocaleString();
+      mytestarr.push({ name: addname, age: addage, updateTime: dateTime, beizhu: addbeizhu });
+      window.localStorage.setItem("xuexi", JSON.stringify(mytestarr));
+      alert(addname + ":已经被添加!!");
+      location.reload();
+    }
+
+
+  }
+  function deletearr() {
+    var yes = window.confirm("确定要删除所有收藏吗?")
+    if (yes) {
+      window.localStorage.removeItem("xuexi");
+      location.reload();
+    }
+    else {
+      alert("已经撤销了删除")
+    }
+  }
+
+
+  // 修改
+  // 修改
+  // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+  var str = `
+  <h1 style="text-align: center; margin:0;">学习网站</h1>
+  <table id="miyazaki">
+   
+    <caption>收藏的网站总计:<b>`+ mytestarr.length + `</b>个</caption>
+        <thead>
+        
+        <tbody>
+        <tr>
+    
+    `;
+  // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 
+  // 修改
+  // 修改
+
+
+  for (var j = 0, len = mytestarr.length; j < len; j++) {
+    var trcolor = randomColor("rgb");
+    var trcolor1 = randomColor("rgb");
+    console.log(trcolor);
+    if (mytestarr[j].updateTime == null) {
+      mytestarr[j].updateTime = new Date().toLocaleString();
+    }
+    if (mytestarr[j].beizhu == null) {
+      mytestarr[j].beizhu = " ";
+    }
+    // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+    str += `<tr><td data-th="序号："` + ` style="background-color: ` + trcolor + `">` + (j + 1) +
+      "</td><td data-th='网站名称:'" + ` style="color: ` + trcolor + `">` + mytestarr[j].name +
+      "</td><td data-th='网站地址:'" + ` style="background-color: ` + "transparent;" + `">` + "<a href='" + mytestarr[j].age + "'" + ` style="color: ` + trcolor1 + `">` + mytestarr[j].age + "</a></td>" +
+      `<td data-th="创建日期:"` + ` style="color: ` + trcolor + `">` + mytestarr[j].updateTime + `</td>
+    <td data-th="备注说明:"` + ` style="border: 1px solid ` + trcolor + `">` + mytestarr[j].beizhu + "</td></tr>";
+    /// 修改/ 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+  }
+
+
+  var trcolor = randomColor("rgb");
+  var trcolor1 = randomColor("rgb");
+
+  // 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+  // id="name" placeholder="请输入名称"
+  str += `<tr> <td colspan="5"` + ` style="color:black;background: ` + "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" + `">`
+    + `<input style="BACKGROUND-COLOR: transparent;" type="text" name="name" id="name" placeholder="请输入名称"></td>
+    <tr>`;
+
+  // id="age" placeholder="请输入链接"
+  str += `<td colspan="5"` + ` style="background: ` + "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" + `">`
+    + `<input style="BACKGROUND-COLOR: transparent;" type="text" id="age" placeholder="请输入链接"> </td>
+    </tr>`
+
+  // id="beizhu" placeholder="请输入备注"
+  str += `<tr><td colspan="5"` + ` style="background: ` + "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);" + `">`
+    + `<input style="BACKGROUND-COLOR: transparent;" type="text" id="beizhu" placeholder="请输入备注"> </td>
+  </tr>`
+
+  // 添加   删除  修改
+  str += `<tr><td colspan="5"` + ` style="background-color: ` + trcolor + `">` +
+    `<input type="button" style="cursor:pointer;background-color: #00cc99;" value="添加   删除  修改" onClick="aabbb()"> </td>
+   </tr>`
+
+  //  下载账号数组文件
+  str += `<tr> <td colspan="5"` + ` style="background-color: ` + trcolor + `">` +
+    `<input style="cursor:pointer;" type="button" value="下载账号数组文件" onclick="add()"></td>
+  </tr>`
+
+  // 清空缓存  初始化mytest数组
+  str += `<tr> <td colspan="5"` + ` style="background-color: ` + trcolor + `">` + `<input  type="button" 
+  style="background-color:  rgb(238, 155, 155);cursor:pointer" value="清空缓存  初始化mytest数组" onClick="deletearr()"></td>
+  </tr>`;
+  // 修改// // 修改// 修改// 修改// 修改改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改// 修改
+
+  str += "</table>";
+  document.getElementById("pp").innerHTML += str;
+  var trs = document.getElementsByTagName("tr");
+  var trarr = [].slice.call(trs);
+  console.log(trarr);
+  for (var j = 0, len = trarr.length; j < len; j++) {
+    var trcolor = randomColor("rgb");
+    trarr[j].style.borderBottomColor = trcolor;
+    // 去除input元素的边框
+    if (j > len - 7) {
+      trarr[j].style.border = "none";
+    }
+  }
+
+
+
+
+  // /*-----begin-------*/
+  // var f = JSON.stringify(fruit); //转化成JSON字符串
+  // window.localStorage.setItem('fruit', f); //存储到本地
+  // /*------end-------*/
+  // var aa = window.localStorage.getItem('fruit'); //读存储的数据
+  // var aaObj = JSON.parse(aa); //将JSON字符串转化成JSON对象方便读取
+
+  var inputs = document.getElementsByTagName("input");
+  console.log(inputs);
+  for (var i = 0, len = inputs.length; i < len; i++) {
+    // inputs[i].style.backgroundColor=randomColor("rgb");
+    inputs[0].style.color = randomColor("rgb");
+    inputs[1].style.color = randomColor("rgb");
+    inputs[2].style.color = randomColor("rgb");
+
+
+  }
+  var title = document.getElementsByTagName("b");
+  title[0].color = randomColor("rgb");
+
+  //存文件mytestsites.txt
+  function exports(name, data) {
+    var urlObject = window.URL || window.mytestkitURL || window;
+    var export_blob = new Blob([data]);
+    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+    save_link.href = urlObject.createObjectURL(export_blob);
+    save_link.download = name;
+    fakeClick(save_link);
+  }
+  function fakeClick(obj) {
+    var ev = document.createEvent('MouseEvents');
+    ev.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    obj.dispatchEvent(ev);
+  }
+
+
+  function add() {
+    var storearr = window.localStorage.getItem('xuexi');
+    var now = new Date();
+    console.log(now);
+    exports("mytests_" + now.toLocaleDateString() + "_" + now.getTime() + ".html", storearr);
+  }
+
+  // 获取id为miyazaki的表格的高度
+  var th = document.all.miyazaki.offsetHeight;
+  document.getElementsByClassName("satic-area")[0].style.height = th + "px";
+
+</script>
+<style>
+  a:hover {
+    color: red !important;
+    font-size: 40px;
+
+  }
+</style>
+<!-- 背景特效 -->
