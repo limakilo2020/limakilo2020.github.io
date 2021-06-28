@@ -15,12 +15,27 @@
     padding: 0;
   }
 
+  h1 {
+    position: fixed;
+    top: 15vw;
+    left: 50%;
+    margin-left: -390px !important;
+  }
+
+  h3 {
+    position: fixed;
+    top: 38vw;
+    left: 35vw;
+
+  }
+
   body {
     background: url(img/red.jpg);
     background-size: contain;
     color: rgb(230, 15, 15);
     font-family: "仓耳今楷";
-    margin-top: 5vw !important;
+    margin-top: 54vw;
+
   }
 
   /* table {
@@ -56,16 +71,48 @@
   a {
     text-decoration: none;
     font-size: 3vw !important;
-    color: red !important;
+    color: rgb(233, 110, 9) !important;
   }
 
   a:hover {
     color: #07ca52 !important;
 
   }
+
+  ol {
+
+    position: sticky;
+    top: 5vw;
+    color: teal !important;
+    list-style: decimal
+  }
+
+  li {
+    width: 15vw;
+    font-size: 6vw;
+    background: rgba(0, 0, 0, 0.2)
+  }
+
+  table {
+    display: none;
+  }
 </style>
 
 <body id="pp" style="font-size: 35px;">
+  <ol>
+    <li><a href="html.html">学习网站</a></li>
+    <li><a href="bangong.html">办公网站</a></li>
+    <li><a href="account.html">邮箱账户</a></li>
+    <li><a href="website.html">网站收藏</a></li>
+    <li><a href="https://www.jianshu.com/u/3b0a57fb4b47">博客园</a></li>
+    <li><a href="img.html">图片网站</a></li>
+    <li><a href="jianli.html">个人简历</a></li>
+  </ol>
+  <div style="text-align: right;position: fixed;top: 1vw;
+  background: url(img/logojiandan100.png);height: 10vw;width: 20vw;background-size: contain;background-repeat: no-repeat;
+  ">
+
+  </div>
 
   <!-- 背景特效 -->
   <div class="satic-area" style="height: 0;margin: 0 auto;" id="pp1">
@@ -300,6 +347,8 @@
   // 修改
   var str = `
   <h1 style="text-align: center; margin:0;">没有共产党就没有新中国</h1>
+  <h3>Without the Communist Party, there would be no new China!</h3>
+
   <table id="miyazaki">
    
     <caption>Without the Communist Party, there would be no new China!</caption>
