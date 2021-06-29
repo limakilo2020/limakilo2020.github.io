@@ -1,5 +1,5 @@
 <!-- 基本修改须知 -->
-<!-- "admovie"修改为对应string -->
+<!-- "study"修改为对应string -->
 
 
 <!DOCTYPE html>
@@ -108,7 +108,7 @@
 </body>
 
 <script type="text/javascript">
-    var arr = window.localStorage.getItem('admovie');
+    var arr = window.localStorage.getItem('study');
     var date = new Date().toLocaleString();
     if (arr == null) {
         var initarr =
@@ -120,18 +120,12 @@
             // 修改数据
 
             [{
-                "name": "迷妹网",
-                "age": "https://mimeiav.com/"
-            }, {
-                "name": "拔插",
-                "age": "https://8xmcjp.com/"
-            }, {
-                "name": "k频道",
-                "age": "http://kdh74.me/"
-            }, {
-                "name": "美姬视频",
-                "age": "https://xn--cysr98f.com/"
+                "name": "HTML（超文本标记语言） 初学者教程",
+                "age": "https://developer.mozilla.org/zh-CN/docs/Web/HTML",
+                "updateTime": "2021/6/17下午5:20:40",
+                "beizhu": ""
             }]
+
 
         // 修改数据
         // 修改数据
@@ -172,9 +166,9 @@
 
 
         ;
-        window.localStorage.setItem("admovie", JSON.stringify(initarr));
+        window.localStorage.setItem("study", JSON.stringify(initarr));
     }
-    var mytestarr = JSON.parse(window.localStorage.getItem('admovie'));
+    var mytestarr = JSON.parse(window.localStorage.getItem('study'));
 
     // 定义活动随机颜色的函数
     function randomColor(type) {
@@ -229,7 +223,7 @@
     }
 
     function aabbb() {
-        var mytestarr = JSON.parse(window.localStorage.getItem('admovie'));
+        var mytestarr = JSON.parse(window.localStorage.getItem('study'));
         var addname = document.getElementById("name").value;
         var addage = document.getElementById("age").value;
         var addbeizhu = document.getElementById("beizhu").value;
@@ -253,7 +247,7 @@
                     if (yes) {
 
                         mytestarr.splice(j, 1);
-                        window.localStorage.setItem("admovie", JSON.stringify(mytestarr));
+                        window.localStorage.setItem("study", JSON.stringify(mytestarr));
                         alert(addname + ":已经被删除!!")
                         location.reload();
                     } else {
@@ -273,7 +267,7 @@
                         mytestarr[j].age = addage;
                         mytestarr[j].updateTime = new Date().toLocaleString() + "(更新)"
                         mytestarr[j].beizhu = addbeizhu;
-                        window.localStorage.setItem("admovie", JSON.stringify(mytestarr));
+                        window.localStorage.setItem("study", JSON.stringify(mytestarr));
                         alert(addname + ":已经被修改!!")
                         location.reload();
                     } else {
@@ -283,7 +277,7 @@
                 }
             }
         } else {
-            var mytestarr = JSON.parse(window.localStorage.getItem('admovie'));
+            var mytestarr = JSON.parse(window.localStorage.getItem('study'));
             var dateTime = new Date().toLocaleString();
             mytestarr.push({
                 name: addname,
@@ -291,7 +285,7 @@
                 updateTime: dateTime,
                 beizhu: addbeizhu
             });
-            window.localStorage.setItem("admovie", JSON.stringify(mytestarr));
+            window.localStorage.setItem("study", JSON.stringify(mytestarr));
             alert(addname + ":已经被添加!!");
             location.reload();
         }
@@ -302,7 +296,7 @@
     function deletearr() {
         var yes = window.confirm("确定要删除所有收藏吗?")
         if (yes) {
-            window.localStorage.removeItem("admovie");
+            window.localStorage.removeItem("study");
             location.reload();
         } else {
             alert("已经撤销了删除")
@@ -344,7 +338,7 @@
     // 修改
     // 修改
     var str = `
-  <h1 style="text-align: center; margin:0;">adult movie</h1>
+  <h1 style="text-align: center; margin:0;">学习网站</h1>
   
 
   <table id="miyazaki">
@@ -493,7 +487,7 @@
 
 
     function add() {
-        var storearr = window.localStorage.getItem('admovie');
+        var storearr = window.localStorage.getItem('study');
         var now = new Date();
         console.log(now);
         exports("mytests_" + now.toLocaleDateString() + "_" + now.getTime() + ".html", storearr);
