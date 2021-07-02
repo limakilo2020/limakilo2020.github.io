@@ -14,44 +14,45 @@
         margin: 0;
         padding: 0;
     }
-    
+
     h1 {
         position: fixed;
         top: 4vw;
         left: 22vw;
         font-size: 2vw;
     }
-    
+
     h3 {
         position: fixed;
         top: 1vw;
         left: 22vw;
         font-size: 2vw;
     }
-    
+
     body {
-        background: url(img/red.jpg);
+        background: url(img/6.jpg);
         background-size: cover;
         color: rgb(230, 15, 15);
         font-family: "仓耳今楷";
         margin-top: 54vw;
     }
+
     /* table {
     width: 100vw;
 
   } */
-    
+
     td {
         width: 24vw;
         height: 10vw;
         background-color: transparent !important;
         text-align: center;
     }
-    
+
     td:first-child {
         width: 4vw;
     }
-    
+
     input {
         width: 97vw;
         height: 10vw;
@@ -60,47 +61,47 @@
         font-size: 5vw;
         border-color: transparent;
     }
-    
+
     input {
         text-align: center;
     }
-    
+
     a {
         text-decoration: none;
         font-size: 4vw !important;
         text-shadow: 0.1vw 0.1vw 1vw rgb(235, 118, 10);
     }
-    
+
     a:hover {
         color: #07ca52 !important;
     }
-    
+
     ol {
         position: fixed;
         top: 7vw;
         color: teal !important;
         list-style: decimal;
         width: 99vw;
-        background: url(img/sheyou.jpg);
+        background: url(img/7.jpg);
         background-position: 22vw 0;
         background-repeat: no-repeat;
         background-size: contain;
     }
-    
+
     li {
         width: 20vw;
         font-size: 6vw;
         background: rgba(0, 0, 0, 0.2)
     }
-    
+
     table {
         display: none;
     }
-    
+
     a:first-child {
         border-color: green !important;
     }
-    
+
     img {
         text-decoration: none;
         border: transparent;
@@ -108,7 +109,7 @@
 </style>
 
 <body id="pp" style="font-size: 35px;">
-    <ol>
+    <ol id="myimg">
         <li><a href="study.html">学习网站</a></li>
         <li><a href="bangong.html">办公网站</a></li>
         <li><a href="account.html">邮箱账户</a></li>
@@ -187,7 +188,7 @@
 
 
 
-        ;
+            ;
         window.localStorage.setItem("bangong", JSON.stringify(initarr));
     }
     var mytestarr = JSON.parse(window.localStorage.getItem('bangong'));
@@ -200,7 +201,7 @@
 
 
         var str3 = "rgb("
-            //rgb的格式;
+        //rgb的格式;
         var str4 = "";
         //统一返回值
         if (type == 16) {
@@ -528,6 +529,19 @@
         }
 
     }, 1000);
+    var i = 1;
+    var myimg = document.getElementById("myimg");
+
+    setInterval(() => {
+
+        myimg.style.backgroundImage = "url(img/" + i + ".jpg)";
+        i++;
+        if (i == 8) {
+            i = 1;
+        }
+
+
+    }, 3000);
 </script>
 
 <!-- 背景特效 -->
