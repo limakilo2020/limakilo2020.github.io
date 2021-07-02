@@ -17,17 +17,16 @@
     
     h1 {
         position: fixed;
-        top: 1vw;
-        right: 5vw;
-        margin-left: -390px !important;
-        font-size: 3vw;
+        top: 4vw;
+        left: 22vw;
+        font-size: 2vw;
     }
     
     h3 {
         position: fixed;
-        top: 50vw;
-        right: 10vw;
-        font-size: 3vw;
+        top: 1vw;
+        left: 22vw;
+        font-size: 2vw;
     }
     
     body {
@@ -519,12 +518,16 @@
 
     var mya = document.getElementsByTagName("a");
     console.log(mya);
-    for (let index = 0; index < mya.length; index++) {
-        var trcolor = randomColor("rgb");
-        const element = mya[index];
-        element.style.color = trcolor;
+    setInterval(() => {
+        for (let index = 0; index < mya.length; index++) {
+            var trcolor = randomColor("rgb");
+            const element = mya[index];
+            element.style.color = trcolor;
 
-    }
+
+        }
+
+    }, 1000);
 </script>
 
 <!-- 背景特效 -->
